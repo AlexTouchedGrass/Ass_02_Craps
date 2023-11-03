@@ -16,6 +16,7 @@ public class Craps {
 
         System.out.println("Welcome to Craps Simulator.");
          while (!valid){
+             valid2 =false;
              System.out.println("Dice one rolls.");
              roll1 = (int) (Math.random()*6)+1;
              System.out.println(roll1);
@@ -23,6 +24,7 @@ public class Craps {
              roll2 = (int) (Math.random()*6)+1;
              System.out.println(roll2);
              total = roll1+roll2;
+             System.out.println(total);
              if (total == 7 || total == 11){
                  System.out.println("You win by natural! Would you like to play again? Y/N");
                  userInput = scan.nextLine();
@@ -42,23 +44,26 @@ public class Craps {
                  }
              } else {
                  while(!valid2){
-                 System.out.println("You are rolling for the point sum, which is " + total);
-                 roll1 = (int) (Math.random()*6)+1;
-                 System.out.println("Dice one rolls.");
-                 System.out.println(roll1);
-                 roll2 = (int) (Math.random()*6)+1;
-                 System.out.println("Dice two rolls.");
-                 System.out.println(roll2);
-                     if (roll1 + roll2 == total) {
+                     int sum = total;
+                    System.out.println("You are rolling for the point sum, which is " + sum);
+                     roll1 = (int) (Math.random()*6)+1;
+                     System.out.println("Dice one rolls.");
+                     System.out.println(roll1);
+                     roll2 = (int) (Math.random()*6)+1;
+                     System.out.println("Dice two rolls.");
+                     System.out.println(roll2);
+                     if (roll1 + roll2 == sum) {
                          System.out.println("You win, would you like to play again? Y/N");
                          userInput = scan.nextLine();
-                         if (userInput.equalsIgnoreCase(again)) {
-                         } else {
-                             System.out.println("Thanks for playing!");
-                             valid2 = true;
-                         }
-                     }
+                         valid2 = true;
+
                  }
+                     }             if (userInput.equalsIgnoreCase(again)) {
+                 } else {
+                     System.out.println("Thanks for playing!");
+                     valid = true;
+                 }
+
              }
          }
     }
